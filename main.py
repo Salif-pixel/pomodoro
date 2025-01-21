@@ -6,8 +6,8 @@ RED = "#e7305b"
 GREEN = "#9bdeac"
 YELLOW = "#f7f5dd"
 FONT_NAME = "Courier"
-WORK_MIN = 1
-SHORT_BREAK_MIN = 1
+WORK_MIN = 25
+SHORT_BREAK_MIN = 5
 LONG_BREAK_MIN = 20
 reps = 0
 timer = None
@@ -28,15 +28,12 @@ def start_timer():
     global reps
     reps += 1
     if reps % 2 != 0 and reps < 8:
-        print("work")
         count_down(WORK_MIN * 60)
         label_timer.config(text="Work", fg=GREEN)
     elif reps == 8:
-        print("long break")
         count_down(LONG_BREAK_MIN * 60)
         label_timer.config(text="Break", fg=RED)
     else:
-        print("short break")
         count_down(SHORT_BREAK_MIN * 60)
         label_timer.config(text="Break", fg=PINK)
 
